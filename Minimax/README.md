@@ -1,6 +1,6 @@
-C implementation of the tree game described [here](https://youtu.be/5oXyibEgJr0?t=76).
+C implementation of the binary tree game, Minimax, described [here](https://youtu.be/5oXyibEgJr0?t=76).
 
-Demonstration of the tree structure.
+Demonstration of the tree structure in C.
 
 
 Full Code:
