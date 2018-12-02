@@ -1,4 +1,4 @@
-C implementation of the tree game described [here](https://youtu.be/5oXyibEgJr0?t=72).
+C implementation of the tree game described [here](https://youtu.be/5oXyibEgJr0?t=76).
 
 Demonstration of the tree structure.
 
