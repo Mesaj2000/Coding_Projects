@@ -1,6 +1,6 @@
 // James Simmons
+// 12/2/2018
 // Implementation of the binary tree game, "Minimax"
-// One player goes high, other player goes low
 
 #include <stdio.h>
 #include <stdlib.h>
