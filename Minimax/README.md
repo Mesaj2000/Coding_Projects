@@ -6,9 +6,8 @@ Demonstration of the tree structure.
 Full Code:
 ```c
 // James Simmons
-// Implementation of the binary tree game
+// Implementation of the binary tree game, "Minimax"
 // One player goes high, other player goes low
-// "solved" game, nash equilibrium
 
 #include <stdio.h>
 #include <stdlib.h>
