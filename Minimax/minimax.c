@@ -10,7 +10,7 @@
 #define NUM_LAYERS 5
 #define MAXLEN 2
 #define max(x,y) ((x) >= (y)) ? (x) : (y)
-#define min(x,y) ((x) <= (y)) ? (x) : (y) 
+#define min(x,y) ((x) <= (y)) ? (x) : (y)
 
 typedef struct node
 {
@@ -34,9 +34,9 @@ int main(void)
 {
 	srand(time(0));
 	instructions();
-	
+
 	node* top = calloc(1, sizeof(node));
-	
+
 	do
 	{
 		fillTree(top, 0);
@@ -50,11 +50,11 @@ int main(void)
 				break;
 			getCompMove(&current);
 		}
-		
+
 		printScore(current, top);
-		
+
 	} while (playAgain());
-		
+
 	printf("Thanks for playing!\n");
 	destroyTree(top);
 }
@@ -78,7 +78,7 @@ void printScore(node* current, node* top)
 		printf("Wow! A perfect score! Good job!\n");
 	}
 	else
-	{ 
+	{
 		printf("The correct path was: ");
 		printPath(top);
 	}
@@ -93,7 +93,7 @@ int playAgain(void)
 	while (1)
 	{
 		scanf("%s", input);
-		
+
 		if (tolower(input[0]) == 'y')
 			return 1;
 		else if (tolower(input[0]) == 'n')
@@ -112,7 +112,7 @@ void getPlayerMove(node** this)
 	while (1)
 	{
 		scanf("%s", input);
-		
+
 		if (tolower(input[0]) == 'l')
 		{
 			*this = (*this)->left;
@@ -144,20 +144,20 @@ void getCompMove(node** this)
 void fillTree(node* this, int layer)
 {
 	this->layer = layer;
-	
+
 	// Bottomost layer gets random values
 	if (layer >= NUM_LAYERS)
 	{
 		this->value = rand() % 10;
 		return;
 	}
-	
+
 	// Not bottommost layer, so create more layers
 	this->left = calloc(1, sizeof(node));
 	fillTree(this->left, layer + 1);
 	this->right = calloc(1, sizeof(node));
 	fillTree(this->right, layer + 1);
-	
+
 	// Propogate up the ideal descisions
 	// Odds go small, evens go big
 	if (this->layer % 2)
@@ -176,10 +176,10 @@ void printTree(node* this)
 	}
 
 	printTree(this->left);
-	
+
 	for (int i = 0; i < NUM_LAYERS - this->layer; i++)
 		printf(" ");
-	
+
 	printTree(this->right);
 }
 
@@ -199,11 +199,11 @@ void printPath(node* this)
 
 // Free up all the memory in the tree
 void destroyTree(node* this)
-{	
+{
 	if (this->left != NULL)
 		destroyTree(this->left);
 	if (this->right != NULL)
 		destroyTree(this->right);
-	
+
 	free(this);
 }
