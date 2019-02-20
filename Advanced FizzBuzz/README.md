@@ -1,4 +1,4 @@
-# FizzBuzz
+# Advanced FizzBuzz
 
 C implementation of the FizzBuzz programming interview question.
 
