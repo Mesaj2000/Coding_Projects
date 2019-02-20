@@ -135,7 +135,7 @@ void appendAndPrint(char *str, list *list, int index)
 	appendMany(str, list, index);
 	
 	if (strcmp(str, "") == 0)
-			printf("%d\n", index);
+		printf("%d\n", index);
 	else
 		printf("%s\n", str);
 }
