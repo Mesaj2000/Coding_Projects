@@ -188,6 +188,9 @@ queue *infixToPostfix(char *infix)
 						postfix = enq(postfix, pop(s));
 
 				case '^':
+					if (peek(s) == '^')
+						postfix = enq(postfix, pop(s));
+
 				case '(':
 					s = push(s, makeNode(sym, 0));
 			}
