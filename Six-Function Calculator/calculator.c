@@ -180,7 +180,7 @@ queue *infixToPostfix(char *infix)
 				case '^':
 					if (peek(s) == '^')
 						postfix = enq(postfix, pop(s));
-						
+
 				case '(':
 					s = push(s, makeNode(sym, 0));
 			}
