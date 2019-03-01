@@ -174,11 +174,11 @@ queue *infixToPostfix(char *infix)
 				case '*':
 				case '/':
 				case '%':
-					if (peek(s) == '*' || peek(s) == '/' || peek(s) == '%' || peek(s) == '^')
+					while (peek(s) == '*' || peek(s) == '/' || peek(s) == '%' || peek(s) == '^')
 						postfix = enq(postfix, pop(s));
 
 				case '^':
-					if (peek(s) == '^')
+					while (peek(s) == '^')
 						postfix = enq(postfix, pop(s));
 
 				case '(':
