@@ -72,6 +72,12 @@ void instructions(void)
 // Print the score: the difference between the number obtained and the best possible number
 void printScore(node* current, node* top)
 {
+	if (current == NULL || top == NULL)
+	{
+		printf("Null pointer detected in printScore()\n");
+		return;
+	}
+
 	printf("Your score was %d. (lower is better)\n", top->value - current->value);
 	if (top->value - current->value == 0)
 	{
@@ -107,6 +113,12 @@ int playAgain(void)
 // Only evaluate the first character of their response, since that's all you need
 void getPlayerMove(node** this)
 {
+	if (this == NULL || *this == NULL)
+	{
+		printf("Null pointer detected in getPlayerMove()\n");
+		return;
+	}
+
 	char* input = calloc(MAXLEN, sizeof(char));
 	printf("(L)eft or (R)ight?\n");
 	while (1)
@@ -134,6 +146,12 @@ void getPlayerMove(node** this)
 // Defaults to left if the value is identical
 void getCompMove(node** this)
 {
+	if (this == NULL || *this == NULL)
+	{
+		printf("Null pointer detected in getCompMove()\n");
+		return;
+	}
+
 	int chooseLeft = (*this)->value == (*this)->left->value;
 	printf("The computer chooses %s.\n", chooseLeft ? "left" : "right");
 	*this = chooseLeft ? (*this)->left : (*this)->right;
@@ -143,6 +161,12 @@ void getCompMove(node** this)
 // and the ideal descisions at each other layer
 void fillTree(node* this, int layer)
 {
+	if (this == NULL)
+	{
+		printf("Null pointer detected in fillTree()\n");
+		return;
+	}
+
 	this->layer = layer;
 
 	// Bottomost layer gets random values
@@ -169,6 +193,12 @@ void fillTree(node* this, int layer)
 // Print out the entire bottom layer of the tree
 void printTree(node* this)
 {
+	if (this == NULL)
+	{
+		printf("Null pointer detected in printTree()\n");
+		return;
+	}
+
 	if (this->layer >= NUM_LAYERS)
 	{
 		printf("%d", this->value);
@@ -187,6 +217,12 @@ void printTree(node* this)
 // Defaults left if multiple valid paths
 void printPath(node* this)
 {
+	if (this == NULL)
+	{
+		printf("Null pointer detected in printPath()\n");
+		return;
+	}
+
 	if (this->layer >= NUM_LAYERS)
 	{
 		printf("%d\n", this->value);
@@ -200,10 +236,10 @@ void printPath(node* this)
 // Free up all the memory in the tree
 void destroyTree(node* this)
 {
-	if (this->left != NULL)
-		destroyTree(this->left);
-	if (this->right != NULL)
-		destroyTree(this->right);
+	if (this == NULL)
+		return;
 
+	destroyTree(this->left);
+	destroyTree(this->right);
 	free(this);
 }
