@@ -45,7 +45,7 @@ int main(void)
 {
 	int i;
 	list *list = initList();
-	char *str = malloc(sizeof(char) * (list->size * list->allwords + 1));
+	char *str = malloc(sizeof(char) * (list->allwords + 1));
 
 	for (i = 0; i < 500; i++)
 		appendAndPrint(str, list, i);
